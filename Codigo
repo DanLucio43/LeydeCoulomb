@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""
+@autor: Gonzalez Rocha Jesus Daniel
+"""
+carga1 = float(input('Dime la carga 1(en MicroCoulombs): '))#Esto puede cambiar para ajustarse a lo que se necesite, ya que el 
+carga2 = float(input('Dime la carga 2(en MicroCoulombs): '))#Ejercicio esta en esta unidad se decidio pedir en esta unidad para mayor rapidez
+carga1 = carga1*(10**-6)#Recordemos pasar a unidades del SI
+carga2 = carga2*(10**-6)
+distancia = float(input('Cual es la distancia entre las cargas (en cm): '))#Aplica lo mismo que en el anterior
+distancia = distancia/100#Recordemos pasar a unidades del SI
+k=8.98755*(10**9)
+exp=0
+resultado = k *((carga1*carga2)/(distancia**2))
+print(resultado,'N\n')
+if(resultado<0): #En esta zona pasamos a notacion cientifica
+    while(resultado<-10):#Cabe resaltar que esto solo funcionara con resultados mayores a 1 o menores a -1
+        resultado = resultado/10
+        exp+=1
+else:
+    while(resultado>10):
+        resultado = resultado/10
+        exp+=1
+
+print(f"{resultado}x10**{exp}N\n")
